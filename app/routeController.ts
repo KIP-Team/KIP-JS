@@ -1,7 +1,6 @@
 import { ServerRequest } from "https://deno.land/std@0.67.0/http/server.ts";
 import { normalizedUrl, params } from './interfaces.ts';
 import ejsHandler from './ejsHandler.ts';
-import urlFormat from "./urlFormat.ts";
 
 export default class controller{
     request: ServerRequest;
@@ -38,6 +37,11 @@ export default class controller{
 
     custom(data: string, type: string, charset: string, status: number){
         this.request.respond({ body: data, status: status, headers: new Headers({ "content-type": `${type};charset=${charset}` })});
+    }
+
+    redirect(url: string, type: number | null){
+        if(type == null) type = 302;
+        this.request.respond({status: type, headers: new Headers({"content-type": "text/html", "Connection": "keep-alive", "Location": url})});
     }
 
 }

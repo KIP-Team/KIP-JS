@@ -1,4 +1,4 @@
-import { engineFactory } from "https://deno.land/x/view_engine@v1.3.0/mod.ts";
+import { engineFactory } from "https://deno.land/x/view_engine@v1.4.5/mod.ts";
 import { params } from './interfaces.ts';
 
 export default class ejsHandler {

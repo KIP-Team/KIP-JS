@@ -1,8 +1,7 @@
-import { routesInterface } from './app/interfaces.ts';
+import { middlewareInterface } from './app/interfaces.ts';
 
-const routes: routesInterface = {
-    "/accueil": { method: ['GET'], controller: 'accueilController' },
-    "/produit": { method: ['GET'], controller: 'produitController' }
+const middleware: middlewareInterface = {
+    "/accueil": { type: "strict", method: ['GET'], controller: 'accueilController' }
 }
 
-export default routes;
+export default middleware;
