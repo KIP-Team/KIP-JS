@@ -1,4 +1,4 @@
-import {normalizedUrl, parameters} from './interfaces.ts'
+import type {normalizedUrl, parameters} from './interfaces.ts'
 import routes from "../routes.ts";
 
 export default class urlFormat {

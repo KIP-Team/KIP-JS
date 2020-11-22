@@ -1,5 +1,5 @@
 import middleware from '../middleware.ts';
-import { middleWareObject } from './interfaces.ts';
+import type { middleWareObject } from './interfaces.ts';
 import { ServerRequest } from "https://deno.land/std@0.67.0/http/server.ts";
 
 export default class middlewareManager {

@@ -1,7 +1,5 @@
 import { ServerRequest } from "https://deno.land/std@0.67.0/http/server.ts";
-import { normalizedUrl } from './interfaces.ts';
-import routes from '../routes.ts';
-import routeController from "./routeController.ts";
+import type { normalizedUrl } from './interfaces.ts';
 
 export default class controllerManager {
     

@@ -1,5 +1,5 @@
 import { engineFactory } from "https://deno.land/x/view_engine@v1.4.5/mod.ts";
-import { parameters } from './interfaces.ts';
+import type { parameters } from './interfaces.ts';
 
 export default class ejsHandler {
     static async render(view: string, params: parameters){
