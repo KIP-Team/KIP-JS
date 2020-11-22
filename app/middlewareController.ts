@@ -18,10 +18,6 @@ export default class middlewareController{
         return true;
     }
 
-    stop(): Boolean{
-        return false;
-    }
-
     send(data: string){
         this.request.respond({ body: data, status: 200, headers: new Headers({ "content-type": 'text/plain;charset=utf-8' })});
     }
