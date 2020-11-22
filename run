@@ -1,2 +1,2 @@
 #/bin/bash
-deno run --reload --allow-net --allow-read --no-check index.ts
+deno run --allow-net --allow-read --no-check index.ts
