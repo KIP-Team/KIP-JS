@@ -1,40 +1,63 @@
 import middleware from '../middleware.ts';
+import { middleWareUrl, params } from './interfaces.ts';
 
 export default class middlewareManager {
     private registerGlobalMiddleware(toRun: Array<any>): void{
         for(const key in middleware){
-            if(this.removeWhiteSpace(key.split("/")).toString() == "*"){
+            var tocheck: string = this.removeWhiteSpace(key.split("/")).toString();
+            if(tocheck == "*"){
                 toRun.push(middleware[key].controller);
             }
         }
     }
 
-    private isMiddlewareRegistered(url: string): Boolean{
-        var middlewareExists: Boolean = false;
+    private compareUrlToMiddleware(url: string): any{
+        var toReturn: Array<any> = [];
+        let theUrl: Array<string> = this.removeWhiteSpace(url.split("/"));
+        let triedUrl: Array<string> = this.removeWhiteSpace(url.split("/"));
+        const score_needed = theUrl.length;
         for(const key in middleware){
-            //on regarde si un middleware Existe
-            switch(middleware[key].type){
-                case "global":
-                    break;
-                case "strict":
-                    break;
+            let y = 0;
+            let score = 0;
+            triedUrl = this.removeWhiteSpace(url.split("/"));
+            let middlewareUrl = this.removeWhiteSpace(key.split("/"));
+            for(const key2 in middlewareUrl){
+                if(middlewareUrl[key2] != "*"){
+                    if(theUrl[y] != undefined){
+                        if(middlewareUrl[key2] == theUrl[y]){
+                            score++;
+                        }
+                    }
+                }else{
+                    triedUrl[y] = "*";
+                    score++;
+                }
+                y++;
             }
-            console.log(this.removeWhiteSpace(key.split("/")));
+            if(score == score_needed || (("/"+triedUrl.join("/")).startsWith(key) && middleware[key].type == "global")){
+                toReturn.push({route: key, parameters: this.buildParams(theUrl, middlewareUrl)});
+            }
         }
-        return middlewareExists;
+        return toReturn;
     }
 
-    private getMiddlewareController(toRun: Array<any>){
-
+    private buildParams(url: Array<string>, middleware: Array<string>): Array<string>{
+        var toReturn: Array<string> = [];
+        var count = 0;
+        for (var i in middleware){
+            if(middleware[i] == "*"){
+                toReturn.push(url[i]);
+            }
+            count++;
+        }
+        return toReturn
     }
 
-    public run(url: string): Array<any>{
+    public run(url: string): any{
         var controllerToRun: Array<any> = []
         this.registerGlobalMiddleware(controllerToRun);
-        if(this.isMiddlewareRegistered(url)){
-            this.getMiddlewareController(controllerToRun);
-        }
-        return controllerToRun;
+        var middlewareRest = this.compareUrlToMiddleware(url);
+        return {globalMiddleware: controllerToRun, middlewareRest: middlewareRest};
     }
 
     private removeWhiteSpace(array: Array<string>): Array<string>{
@@ -44,10 +67,4 @@ export default class middlewareManager {
 
 
 var test = new middlewareManager()
-console.log(test.run("/test/"));
-console.log("\n\n\n\n\n\n\n\n\n\n")
-console.log(test.run("/produit/"));
-console.log("\n\n\n\n\n\n\n\n\n\n")
-console.log(test.run("/produit/none/waza/wow"));
-console.log("\n\n\n\n\n\n\n\n\n\n")
-console.log(test.run("/"));
+console.log(test.run("/produit/none/waza/wow/gd"));

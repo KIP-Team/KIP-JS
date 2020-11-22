@@ -1,12 +1,10 @@
-import middleware from "../middleware.ts";
-
 export interface routesInterface {
     [index: string]: routeDetails
- }
+}
 
- export interface middlewareInterface {
-     [index: string]: middlewareDetails
- }
+export interface middlewareInterface {
+    [index: string]: middlewareDetails
+}
 
 interface routeDetails {
     method: Array<string>,
@@ -26,5 +24,10 @@ export interface params {
 export interface normalizedUrl {
     route: string,
     getParams: params,
-    urlParams: params;
+    urlParams: params
+}
+
+export interface middleWareUrl {
+    route: string,
+    params: params
 }
