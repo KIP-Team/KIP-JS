@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="01db038b-72b3-4d54-bb88-21f000fd2696" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kfEQECP3IyNGANhzj5pe9zOeH9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.intellij.deno.DenoConfigurable" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Deno.Prod">
+    <configuration name="Dev" type="DenoConfigurationType" inputPath="$PROJECT_DIR$/index.ts" programParameters="run --reload --allow-net --allow-read">
+      <method v="2" />
+    </configuration>
+    <configuration name="Prod" type="DenoConfigurationType" temporary="true" inputPath="$PROJECT_DIR$/index.ts" programParameters="run --allow-net --allow-read --no-check">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Deno.Dev" />
+      <item itemvalue="Deno.Prod" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Deno.Prod" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01db038b-72b3-4d54-bb88-21f000fd2696" name="Default Changelist" comment="" />
+      <created>1606083228961</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606083228961</updated>
+      <workItem from="1606083230736" duration="139000" />
+      <workItem from="1606083385394" duration="488000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="812" y="206" width="1084" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606083684969">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state x="812" y="206" width="1084" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1606083684969" />
+    <state x="708" y="412" width="504" height="295" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606083858669">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state x="708" y="412" width="504" height="295" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.31.1920.1049@0.31.1920.1049" timestamp="1606083858669" />
+    <state width="1897" height="267" key="GridCell.Tab.0.bottom" timestamp="1606083859111">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state width="1897" height="267" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1606083859111" />
+    <state width="1897" height="267" key="GridCell.Tab.0.center" timestamp="1606083859111">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state width="1897" height="267" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1606083859111" />
+    <state width="1897" height="267" key="GridCell.Tab.0.left" timestamp="1606083859110">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state width="1897" height="267" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1606083859110" />
+    <state width="1897" height="267" key="GridCell.Tab.0.right" timestamp="1606083859111">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state width="1897" height="267" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1606083859111" />
+    <state x="449" y="193" width="1022" height="733" key="SettingsEditor" timestamp="1606083563095">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state x="449" y="193" width="1022" height="733" key="SettingsEditor/0.31.1920.1049@0.31.1920.1049" timestamp="1606083563095" />
+  </component>
+</project>
