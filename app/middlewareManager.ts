@@ -1,5 +1,6 @@
 import middleware from '../middleware.ts';
 import { middleWareObject } from './interfaces.ts';
+import { ServerRequest } from "https://deno.land/std@0.67.0/http/server.ts";
 
 export default class middlewareManager {
     private registerGlobalMiddleware(toRun: Array<middleWareObject>): void{
@@ -49,11 +50,19 @@ export default class middlewareManager {
         return toReturn;
     }
 
-    public run(url: string): Array<middleWareObject>{
+    public async runController(req: ServerRequest){
         var controllerToRun: Array<middleWareObject> = [];
         this.registerGlobalMiddleware(controllerToRun);
-        this.compareUrlToMiddleware(url, controllerToRun);
-        return controllerToRun;
+        this.compareUrlToMiddleware(req.url, controllerToRun);
+        for(var i in controllerToRun){
+            try{
+                const ctrl = await import("../controller/middleware/" + controllerToRun[i].controller +".ts");
+                return await new ctrl.default(req, controllerToRun[i]).index();
+            }catch(e){
+                console.error(e);
+                req.respond({body: "Erreur", status: 404, headers: new Headers({ "content-type": "text/plain;charset=utf-8"})});
+            }
+        }
     }
 
     private removeWhiteSpace(array: Array<string>): Array<string>{

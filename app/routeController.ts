@@ -1,7 +1,6 @@
 import { ServerRequest } from "https://deno.land/std@0.67.0/http/server.ts";
 import { normalizedUrl, params } from './interfaces.ts';
 import ejsHandler from './ejsHandler.ts';
-import urlFormat from "./urlFormat.ts";
 
 export default class controller{
     request: ServerRequest;

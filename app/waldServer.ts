@@ -2,6 +2,7 @@ import { serve, ServerRequest } from "https://deno.land/std@0.67.0/http/server.t
 import staticHandler from './static.ts';
 import controllerManager from '../app/controllerManager.ts';
 import urlFormat from './urlFormat.ts';
+import middlewareManager from '../app/middlewareManager.ts';
 
 export default class waldServer{
   private port: number;
@@ -29,8 +30,11 @@ export default class waldServer{
   private async handler(req: ServerRequest ){
     const url = req.url;
     const routeURI = urlFormat.getKeyURI(url)
+    const middlewareMan = new middlewareManager();
     if (routeURI!==null){
-      await this.ctrlManager.runController(req,urlFormat.build(url,routeURI))
+      if(await middlewareMan.runController(req)){
+        await this.ctrlManager.runController(req,urlFormat.build(url,routeURI))
+      } 
     }else{
       const resp = await this.staticCase(req)
       if(resp){
