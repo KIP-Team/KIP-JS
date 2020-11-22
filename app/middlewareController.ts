@@ -10,7 +10,7 @@ export default class middlewareController{
         this.controllerToRun = parameters;
     }
 
-    index(): Boolean{
+    index(): boolean{
         return true;
     }
 

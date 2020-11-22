@@ -6,14 +6,14 @@ import middlewareManager from '../app/middlewareManager.ts';
 
 export default class waldServer{
   private port: number;
-  private ctrlManager : any;
+  private ctrlManager: controllerManager;
 
   constructor(port: number){
+    this.ctrlManager = new controllerManager();
     this.port = port;
   }
 
   public async start(){
-      this.ctrlManager = new controllerManager();
       try{
         const s = serve({ port: this.port });
         console.log(`Server started on port ${this.port} Starting listening request`);

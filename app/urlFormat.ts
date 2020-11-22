@@ -35,7 +35,7 @@ export default class urlFormat {
     }
 
     private static buildGetMap(requestURI: string) {
-        let GetMap : parameters = {};
+        const GetMap : parameters = {};
         if (requestURI.split("?").length == 2) {
             const getParam = requestURI.split("?")[1].split("&");
             for (const param of getParam) {
@@ -49,7 +49,7 @@ export default class urlFormat {
     }
 
     private static buildUriMap(requestURI: string, routeURI: string) {
-        let UriMap : parameters = {};
+        const UriMap : parameters = {};
 
         const requestUriArr = requestURI.split("?")[0].split("/");
         const routeUriArr = routeURI.split("/");

@@ -9,7 +9,7 @@ interface middlewareInterface {
     [index: string]: middlewareDetails
 }
 
-interface routeDetails {
+interface routeDetails {
     method: Array<string>,
     controller: string
 }

@@ -4,8 +4,9 @@ import { ServerRequest } from "https://deno.land/std@0.67.0/http/server.ts";
 
 export default class middlewareManager {
     private registerGlobalMiddleware(toRun: Array<middleWareObject>): void{
+        var tocheck: string;
         for(const key in middleware){
-            var tocheck: string = this.removeWhiteSpace(key.split("/")).toString();
+            tocheck = this.removeWhiteSpace(key.split("/")).toString();
             if(tocheck == "*"){
                 toRun.push({controller: middleware[key].controller, parameters: []});
             }
@@ -13,14 +14,14 @@ export default class middlewareManager {
     }
 
     private compareUrlToMiddleware(url: string, controllerToRun: Array<middleWareObject>){
-        let theUrl: Array<string> = this.removeWhiteSpace(url.split("/"));
+        const theUrl: Array<string> = this.removeWhiteSpace(url.split("/"));
         let triedUrl: Array<string> = this.removeWhiteSpace(url.split("/"));
-        const score_needed = theUrl.length;
+        const scoreNeeded = theUrl.length;
         for(const key in middleware){
             let y = 0;
             let score = 0;
             triedUrl = this.removeWhiteSpace(url.split("/"));
-            let middlewareUrl = this.removeWhiteSpace(key.split("/"));
+            const middlewareUrl = this.removeWhiteSpace(key.split("/"));
             for(const key2 in middlewareUrl){
                 if(middlewareUrl[key2] != "*"){
                     if(theUrl[y] != undefined){
@@ -34,7 +35,7 @@ export default class middlewareManager {
                 }
                 y++;
             }
-            if(score == score_needed || (("/"+triedUrl.join("/")).startsWith(key) && middleware[key].type == "global")){
+            if(score == scoreNeeded || (("/"+triedUrl.join("/")).startsWith(key) && middleware[key].type == "global")){
                 controllerToRun.push({controller: middleware[key].controller, parameters: this.buildParams(theUrl, middlewareUrl)});
             }
         }
@@ -42,7 +43,8 @@ export default class middlewareManager {
 
     private buildParams(url: Array<string>, middleware: Array<string>): Array<string>{
         var toReturn: Array<string> = [];
-        for (var i in middleware){
+        var i;
+        for (i in middleware){
             if(middleware[i] == "*"){
                 toReturn.push(url[i]);
             }
@@ -57,7 +59,8 @@ export default class middlewareManager {
         if(controllerToRun.length == 0){
             return true;
         }
-        for(var i in controllerToRun){
+        var i; 
+        for(i in controllerToRun){
             try{
                 const ctrl = await import("../controller/middleware/" + controllerToRun[i].controller +".ts");
                 return await new ctrl.default(req, controllerToRun[i]).index();

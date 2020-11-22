@@ -31,7 +31,7 @@ export default class controller{
         this.request.respond({ body: data, status: 200, headers: new Headers({ "content-type": 'text/plain;charset=utf-8' })});
     }
 
-    json(data: any){
+    json(data: JSON){
         this.request.respond({ body: JSON.stringify(data), status: 200, headers: new Headers({ "content-type": 'application/json;charset=utf-8' })});
     }
 
