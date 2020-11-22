@@ -1,8 +1,11 @@
-export interface routesInterface {
+interface routesInterface {
     [index: string]: routeDetails
 }
 
-export interface middlewareInterface {
+interface parameters {
+    [index: string]: string
+}
+interface middlewareInterface {
     [index: string]: middlewareDetails
 }
 
@@ -17,17 +20,15 @@ interface middlewareDetails {
     controller: string
 }
 
-export interface params {
-    [index: string]: string
-}
-
-export interface normalizedUrl {
+interface normalizedUrl {
     route: string,
-    getParams: params,
-    urlParams: params
+    getParams: parameters,
+    urlParams: parameters
 }
 
-export interface middleWareObject {
+interface middleWareObject {
     controller: string,
     parameters: Array<string>
 }
+
+export type { routesInterface, parameters, middlewareInterface, normalizedUrl, middleWareObject };

@@ -1,11 +1,11 @@
 import { ServerRequest } from "https://deno.land/std@0.67.0/http/server.ts";
-import { normalizedUrl, params } from './interfaces.ts';
+import type { normalizedUrl, parameters } from './interfaces.ts';
 import ejsHandler from './ejsHandler.ts';
 
 export default class controller{
     request: ServerRequest;
-    getParams: params;
-    urlParams: params;
+    getParams: parameters;
+    urlParams: parameters;
 
     constructor(request: ServerRequest, url: normalizedUrl){
         this.request = request;
@@ -18,7 +18,7 @@ export default class controller{
         this.send('La route fonctionne mais nécessite la methode index() pour renvoyer une donnée')
     }
 
-    async render(data: string, params: params){
+    async render(data: string, params: parameters){
         var page = await ejsHandler.render(data, params)
         if(page){
             this.request.respond({ body: page, status: 200, headers: new Headers({ "content-type": 'text/html;charset=utf-8' })});

@@ -1,4 +1,4 @@
-import {normalizedUrl, params} from './interfaces.ts'
+import {normalizedUrl, parameters} from './interfaces.ts'
 import routes from "../routes.ts";
 
 export default class urlFormat {
@@ -35,7 +35,7 @@ export default class urlFormat {
     }
 
     private static buildGetMap(requestURI: string) {
-        let GetMap : params = {};
+        let GetMap : parameters = {};
         if (requestURI.split("?").length == 2) {
             const getParam = requestURI.split("?")[1].split("&");
             for (const param of getParam) {
@@ -49,7 +49,7 @@ export default class urlFormat {
     }
 
     private static buildUriMap(requestURI: string, routeURI: string) {
-        let UriMap : params = {};
+        let UriMap : parameters = {};
 
         const requestUriArr = requestURI.split("?")[0].split("/");
         const routeUriArr = routeURI.split("/");

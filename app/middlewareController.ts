@@ -5,9 +5,9 @@ export default class middlewareController{
     request: ServerRequest;
     controllerToRun: middleWareObject;
 
-    constructor(request: ServerRequest, params: middleWareObject){
+    constructor(request: ServerRequest, parameters: middleWareObject){
         this.request = request;
-        this.controllerToRun = params
+        this.controllerToRun = parameters;
     }
 
     index(): Boolean{

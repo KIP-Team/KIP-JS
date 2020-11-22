@@ -54,6 +54,9 @@ export default class middlewareManager {
         var controllerToRun: Array<middleWareObject> = [];
         this.registerGlobalMiddleware(controllerToRun);
         this.compareUrlToMiddleware(req.url, controllerToRun);
+        if(controllerToRun.length == 0){
+            return true;
+        }
         for(var i in controllerToRun){
             try{
                 const ctrl = await import("../controller/middleware/" + controllerToRun[i].controller +".ts");

@@ -33,6 +33,7 @@ export default class waldServer{
     const middlewareMan = new middlewareManager();
     if (routeURI!==null){
       if(await middlewareMan.runController(req) == true){
+        console.log("is ok")
         await this.ctrlManager.runController(req,urlFormat.build(url,routeURI))
       } 
     }else{

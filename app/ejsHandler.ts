@@ -1,8 +1,8 @@
 import { engineFactory } from "https://deno.land/x/view_engine@v1.4.5/mod.ts";
-import { params } from './interfaces.ts';
+import { parameters } from './interfaces.ts';
 
 export default class ejsHandler {
-    static async render(view: string, params: params){
+    static async render(view: string, params: parameters){
         const ejsEngine = engineFactory.getEjsEngine()
         try{
             const file = await Deno.open(`views/${view}.ejs`);
