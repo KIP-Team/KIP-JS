@@ -11,10 +11,6 @@ export default class middlewareController{
     }
 
     index(): Boolean{
-        return this.next();
-    }
-
-    next(): Boolean{
         return true;
     }
 
