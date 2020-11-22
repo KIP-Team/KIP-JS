@@ -43,8 +43,7 @@ export default class middlewareManager {
 
     private buildParams(url: Array<string>, middleware: Array<string>): Array<string>{
         var toReturn: Array<string> = [];
-        var i;
-        for (i in middleware){
+        for (const i in middleware){
             if(middleware[i] == "*"){
                 toReturn.push(url[i]);
             }
@@ -59,8 +58,7 @@ export default class middlewareManager {
         if(controllerToRun.length == 0){
             return true;
         }
-        var i; 
-        for(i in controllerToRun){
+        for(const i in controllerToRun){
             try{
                 const ctrl = await import("../controller/middleware/" + controllerToRun[i].controller +".ts");
                 return await new ctrl.default(req, controllerToRun[i]).index();
