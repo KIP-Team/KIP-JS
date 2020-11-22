@@ -27,7 +27,7 @@ export interface normalizedUrl {
     urlParams: params
 }
 
-export interface middleWareUrl {
-    route: string,
-    params: params
+export interface middleWareObject {
+    controller: string,
+    parameters: Array<string>
 }
