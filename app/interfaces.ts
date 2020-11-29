@@ -16,3 +16,7 @@ export interface normalizedUrl {
     getParams: params,
     urlParams: params;
 }
+
+export interface postData {
+    [index : string]: object
+}

@@ -1,5 +1,6 @@
 import {normalizedUrl, params} from './interfaces.ts'
 import routes from "../routes.ts";
+import postFormat from "./postFormat.ts";
 
 export default class urlFormat {
 
@@ -38,7 +39,7 @@ export default class urlFormat {
         let GetMap : params = {};
         if (requestURI.split("?").length == 2) {
             const getParam = requestURI.split("?")[1].split("&");
-            for (const param of getParam) {
+            for (const param in getParam) {
                 const keyValues = param.split("=")
                 if (keyValues.length == 2) {
                     GetMap[keyValues[0]]=keyValues[1]

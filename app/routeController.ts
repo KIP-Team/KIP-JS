@@ -1,17 +1,19 @@
 import { ServerRequest } from "https://deno.land/std@0.67.0/http/server.ts";
-import { normalizedUrl, params } from './interfaces.ts';
+import {normalizedUrl, params, postData} from './interfaces.ts';
 import ejsHandler from './ejsHandler.ts';
 import urlFormat from "./urlFormat.ts";
 
 export default class controller{
     request: ServerRequest;
     getParams: params;
+    postParams: postData | null;
     urlParams: params;
 
-    constructor(request: ServerRequest, url: normalizedUrl){
+    constructor(request: ServerRequest, url: normalizedUrl, post : postData | null){
         this.request = request;
         this.getParams = url.getParams;
         this.urlParams = url.urlParams;
+        this.postParams = post;
         this.index();
     }
 

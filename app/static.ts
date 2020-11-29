@@ -24,4 +24,14 @@ export default class staticHandler{
           return undefined;
         }
       }
+
+    static isInArray(searchArray: string[], searchParams: string) {
+        let str: string;
+        for (str in searchArray) {
+            if (str === searchParams) {
+                return true
+            }
+        }
+        return false;
+    }
 }

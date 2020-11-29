@@ -3,6 +3,7 @@ import staticHandler from './static.ts';
 import controllerManager from '../app/controllerManager.ts';
 import urlFormat from './urlFormat.ts';
 import postFormat from './postFormat.ts'
+import routes from "../routes.ts";
 
 export default class waldServer{
   private port: number;
@@ -29,7 +30,9 @@ export default class waldServer{
       case "GET" || "HEAD":
         if (routeURI !== null)
         {
-          await this.ctrlManager.runController(req, urlFormat.build(url, routeURI))
+          if (isInArray(routes[routeURI].method,"GET")||isInArray(routes[routeURI].method,"HEAD")) {
+            await this.ctrlManager.runController(req, urlFormat.build(url, routeURI))
+          }
         }
         else
         {
@@ -47,11 +50,20 @@ export default class waldServer{
         }
         break;
       case "POST":
-        const decoder = new TextDecoder('utf-8');
-        const body = await decoder.decode(await Deno.readAll(req.body))
-        console.log(req.headers.get("content-type")+"\n");
-        console.log(body);
-        console.log(postFormat.build(body,req.headers.get("content-type")))
+        if (routeURI !== null)
+        {
+          if (isInArray(routes[routeURI].method,"POST")){
+            const decoder = new TextDecoder('utf-8');
+            const body = await decoder.decode(await Deno.readAll(req.body))
+            await this.ctrlManager.runController(req, urlFormat.build(url, routeURI, postFormat.build(body, req.headers.get("content-type"))))
+          }
+        }else {
+          req.respond({
+            body: "Erreur 404",
+            status: 404,
+            headers: new Headers({"content-type": "text/plain;charset=utf-8"})
+          });
+        }
         break;
       default:
         //@todo replacer req par un controller d'erreur
